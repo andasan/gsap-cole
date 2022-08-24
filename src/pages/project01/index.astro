@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-// import {hoverEffect, TweenMax} from "./hover-effect.umd.js"
 ---
 
 <Layout title="KamiGata">
@@ -15,11 +14,11 @@ import Layout from "../../layouts/Layout.astro";
 		=============================== -->
 		<nav class="navbar">
 			<div class="menu">
-				<ion-icon name="ios-menu" />
+				<ion-icon name="menu" />
 			</div>
 			<div class="lang">eng</div>
 			<div class="search">
-				<ion-icon name="ios-search" />
+				<ion-icon name="search-circle-outline" />
 			</div>
 		</nav>
 
@@ -67,31 +66,13 @@ import Layout from "../../layouts/Layout.astro";
 		<div class="distortion"></div>
 	</div>
 
-	<!-- icons -->
-	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-	<!-- gsap -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
-		integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U="
-		crossorigin="anonymous"
-	></script>
-	<!-- three js -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"
-		integrity="sha256-3mBEX8I0uMLF7+AUjJeTCelosuorzYpqwBMBPDTyQqY="
-		crossorigin="anonymous"
-	></script>
-	<!-- hover-effect js -->
-	<script src="./hover-effect.umd.js"></script>
-
-	<script>
+	<script is:inline>
 		new hoverEffect({
 			parent: document.querySelector(".distortion"),
 			intensity: 0.2,
-			image1: "ranma_oto.png",
-			image2: "ranma_ona.png",
-			displacementImage:
-				"https://raw.githubusercontent.com/codicts/Fashion-Landing-Page/master/images/diss.png",
+			image1: "/images/ranma_oto.png",
+			image2: "/images/ranma_ona.png",
+			displacementImage:"/images/diss.png",
 			imagesRatio: 1024 / 1024,
 		});
 
