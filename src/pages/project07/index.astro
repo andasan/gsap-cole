@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="ScrollMagic">
+	<header>
+        <h1>Full Page Scroll Animation</h1>
+    </header>
+
+    <section class="animation">
+        <img src="/images/happy.png" alt="shark" class="happy">
+    </section>
+
+    <footer>
+        <h1>ScrollMagic</h1>
+    </footer>
+    <script is:inline>
+        const path = {
+            curvines: 1.85,
+            autoRotate: true,
+            values: [
+                { x: 100, y: -20 },
+                { x: 300, y: 10 },
+                { x: 500, y: 100 },
+                { x: 650, y: -180 },
+                { x: 300, y: 70 },
+                { x: 560, y: 120 },
+                { x: 720, y: 90 },
+                { x: 720, y: -130 },
+                { x: window.innerWidth, y: 10 },
+            ]
+        }
+
+        const tween = new TimelineLite();
+
+        tween.add(
+            TweenMax.to('.happy', 1, {
+                bezier: path,
+                ease: Power1.easeInOut
+            })
+        )
+
+        const controller = new ScrollMagic.Controller()
+
+        new ScrollMagic.Scene({
+            triggerElement: '.animation',
+            duration: 8000,
+            triggerHook: 0
+        })
+            .setTween(tween)
+            .setPin('.animation')
+            .addTo(controller)
+    </script>
+</Layout>
+
+<style>
+	*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    header, footer {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Monsterrat', sans-serif;
+    }
+
+    header h1 {
+        font-size: 65px;
+    }
+
+    .animation {
+        height: 100vh;
+        background: lightblue;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .happy {
+        position: absolute;
+        height: 225px;
+        top: 50%;
+        left: 0%;
+    }
+</style>
