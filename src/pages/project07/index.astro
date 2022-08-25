@@ -3,12 +3,12 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="ScrollMagic">
-	<header>
+    <header>
         <h1>Full Page Scroll Animation</h1>
     </header>
 
     <section class="animation">
-        <img src="/images/happy.png" alt="shark" class="happy">
+        <img src="/images/happy.png" alt="shark" class="happy" />
     </section>
 
     <footer>
@@ -28,44 +28,45 @@ import Layout from "../../layouts/Layout.astro";
                 { x: 720, y: 90 },
                 { x: 720, y: -130 },
                 { x: window.innerWidth, y: 10 },
-            ]
-        }
+            ],
+        };
 
         const tween = new TimelineLite();
 
         tween.add(
-            TweenMax.to('.happy', 1, {
+            TweenMax.to(".happy", 1, {
                 bezier: path,
-                ease: Power1.easeInOut
+                ease: Power1.easeInOut,
             })
-        )
+        );
 
-        const controller = new ScrollMagic.Controller()
+        const controller = new ScrollMagic.Controller();
 
         new ScrollMagic.Scene({
-            triggerElement: '.animation',
+            triggerElement: ".animation",
             duration: 8000,
-            triggerHook: 0
+            triggerHook: 0,
         })
             .setTween(tween)
-            .setPin('.animation')
-            .addTo(controller)
+            .setPin(".animation")
+            .addTo(controller);
     </script>
 </Layout>
 
 <style>
-	*{
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    header, footer {
+    header,
+    footer {
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'Monsterrat', sans-serif;
+        font-family: "Monsterrat", sans-serif;
     }
 
     header h1 {
